@@ -1,6 +1,5 @@
 package tests;
 
-import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.Before;
@@ -16,8 +15,7 @@ public class LoginTest {
 	@Before
 	public void setUp() throws Exception {
 		loginPage = new LoginPage(driver);
-		driver = loginPage.ConectionChrome(); // DataBase
-		driver = loginPage.ConectionChrome();
+		driver = loginPage.ConectionChrome(); // DataBase;
 		loginPage.visit("https://demo.guru99.com/test/newtours/index.php");
 		loginPage.checkHome();
 		

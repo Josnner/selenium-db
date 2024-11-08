@@ -23,6 +23,9 @@ public class LoginPage extends HomePage{
 	//Texto Login
 	By textLogin = By.cssSelector("tbody tr td h3");
 	
+	//Boton Flights
+	By btnFlights = By.cssSelector("body > div:nth-child(5) > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(2) > a:nth-child(1)");
+	
 	public LoginPage(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
@@ -63,9 +66,8 @@ public class LoginPage extends HomePage{
 			                	click(btnSubmit);
 			    				waitForElementToBeVisible(textLogin, 5);
 			    				assertElementText(textLogin, "Login Successfully", "No se encuentra en la pagina de login");
-			                	
-			                	//System.out.println(metaData.getColumnName(i) + ": " + rs.getString(i));
-			                
+			                	click(btnFlights);
+			                	   
 			            }
 			        } catch (SQLException e) {
 			            System.out.println("Error en la operación de base de datos: " + e.getMessage());

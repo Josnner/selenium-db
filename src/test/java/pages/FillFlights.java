@@ -18,6 +18,7 @@ public class FillFlights extends HomePage {
 	By radioServClass = By.xpath("//input[@value='Business']");
 	By comboAirline = By.xpath("//select[@name='airline']");
 	By btnFindFlights = By.xpath("//input[@name='findFlights']");
+	By confirFlight = By.xpath("//tbody/tr[@valign='top']/td/p[@align='left']/font[@face='Arial, Helvetica, sans-serif']/b/font[1]");
 	
 	public FillFlights(WebDriver driver) {
 		super(driver);
@@ -43,6 +44,8 @@ public void FillData() {
 		seleccionarComboBoxValor(comboAirline, "Unified Airlines");
 		waitForElementToBeVisible(btnFindFlights,3);
 		click(btnFindFlights);
+		waitForElementToBeVisible(confirFlight, 5);
+		assertElementText(confirFlight, "After flight finder - No Seats Avaialble  ", "Hay hacientos disponibles");
 	}else {
 		System.out.println("No se encuentra en la página Flight finder");
 	}
